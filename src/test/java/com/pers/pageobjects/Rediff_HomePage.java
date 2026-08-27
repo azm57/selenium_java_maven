@@ -23,17 +23,14 @@ public class Rediff_HomePage {
 
 	WebDriver driver = Browser.getDriver();
 
-	@FindBy(xpath = "//*[@id='signin_info']/a[1]")
-	List<WebElement> lnkSignin;
+	@FindBy(xpath = "//*[@name='username']")
+	WebElement txtUsername;
 
-	@FindBy(xpath = "//*[@id='useremail']")
-	WebElement txtEmail;
-
-	@FindBy(xpath = "//*[@id='userpass']")
+	@FindBy(xpath = "//*[@name='password']")
 	WebElement txtPassword;
 
-	@FindBy(xpath = "//*[@id='loginsubmit']")
-	List<WebElement> btnSubmit;
+	@FindBy(xpath = "//*[@type='submit']")
+	List<WebElement> btnSubmitt;
 
 	@FindBy(linkText = "My Watchlist")
 	List<WebElement> lnkWatchlist;
@@ -44,24 +41,21 @@ public class Rediff_HomePage {
 	@FindBy(linkText = "Sign Out")
 	WebElement lnkSignout;
 
-	public void Login() throws Exception {
+	@FindBy(xpath = "//h6[text()='Dashboard']")
+	WebElement lblDashboard;
 
-		if (!ActionsUtil.gFunc_ClickElement(lnkSignin.get(0))) {
-			throw new CustomeExceptionUtil("Signin link not found");
-		} else {
-			Log.info("Signin Link found and clicked successfully");
-		}
+	public void Login() throws Exception {
 
 		Set<String> s = driver.getWindowHandles();
 		System.out.println(s);
 		Iterator<String> I1 = s.iterator();
 		driver.switchTo().window(I1.next());
 		System.out.println(driver.getTitle());
-		// Enter email
-		if (!ActionsUtil.gFunc_SendText(txtEmail, ExcelUtil.objTestDataMap.get("Login_Email"))) {
-			throw new CustomeExceptionUtil("Email Field not found");
+		// Enter Username
+		if (!ActionsUtil.gFunc_SendText(txtUsername, ExcelUtil.objTestDataMap.get("Login_User"))) {
+			throw new CustomeExceptionUtil("Username field not found");
 		} else {
-			Log.info("Email entered successfully");
+			Log.info("Username field found and entered text");
 		}
 
 		// Enter Password
@@ -72,14 +66,14 @@ public class Rediff_HomePage {
 		}
 
 		// Click on Sign-in button
-		if (!ActionsUtil.gFunc_ClickElement(btnSubmit.get(0))) {
+		if (!ActionsUtil.gFunc_ClickElement(btnSubmitt.get(0))) {
 			throw new CustomeExceptionUtil("SignIn Button not found");
 		} else {
 			Log.info("SignIn button found and clicked successfully");
 		}
 
 		// Verify the login successful
-		if (!ActionsUtil.bFunc_WaitForObjectExistance(lnkSignout)) {
+		if (!ActionsUtil.bFunc_WaitForObjectExistance(lblDashboard)) {
 			throw new CustomeExceptionUtil("SignIn failed");
 		} else {
 			Log.info("SignIn Successfull");

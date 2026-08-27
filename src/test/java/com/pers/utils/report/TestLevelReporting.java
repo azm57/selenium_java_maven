@@ -1,10 +1,9 @@
 package com.pers.utils.report;
 
+import com.pers.fixtures.ScreenshotUtil;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
-import com.pers.fixtures.ScreenshotUtil;
 
 public class TestLevelReporting implements ITestListener {
 

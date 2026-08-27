@@ -1,7 +1,6 @@
 package com.pers.fixtures;
 
-import java.util.concurrent.TimeUnit;
-
+import com.pers.utils.Browser;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,8 +8,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 
-import com.google.common.base.Function;
-import com.pers.utils.Browser;
+import java.time.Duration;
+import java.util.function.Function;
 
 public class ActionsUtil {
 	public static Actions act = new Actions(Browser.getDriver());
@@ -74,8 +73,8 @@ public class ActionsUtil {
 		// boolean handleAlert = false;
 		try {
 			FluentWait<WebDriver> wait = new FluentWait<WebDriver>(Browser.getDriver());
-			wait.pollingEvery(Browser.strPollingEvery, TimeUnit.SECONDS);
-			wait.withTimeout(Browser.intMaxWait, TimeUnit.SECONDS);
+			wait.pollingEvery(Duration.ofSeconds(5L));
+			wait.withTimeout(Duration.ofSeconds(30L));
 			Function<WebDriver, Boolean> function = new Function<WebDriver, Boolean>() {
 				public Boolean apply(WebDriver driver) {
 					boolean blnFound = false;

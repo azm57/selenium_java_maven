@@ -1,7 +1,5 @@
 package com.pers.utils;
 
-import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,6 +8,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.Optional;
+
+import java.io.IOException;
 
 public class Browser {
 
@@ -36,9 +36,10 @@ public class Browser {
 
 			if (Driver == null) {
 				if (strBrowserType.equalsIgnoreCase("Chrome")) {
-					System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+					//System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
 					ChromeOptions options = new ChromeOptions();
 					options.addArguments("--incognito", "--window-size=1920,1080");
+					//options.addArguments("--incognito", "--window-size=1920,1080", "--headless=new");
 					Driver = new ChromeDriver(options);
 					ThreadDriver.set(Driver);
 				} else if (strBrowserType.equalsIgnoreCase("IE")) {

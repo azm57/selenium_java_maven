@@ -1,9 +1,8 @@
 package com.pers.fixtures;
 
+import com.pers.utils.Browser;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-
-import com.pers.utils.Browser;
 
 class ScrollUtil {
 	public static WebElement we;

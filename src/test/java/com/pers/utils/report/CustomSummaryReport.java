@@ -1,13 +1,13 @@
 package com.pers.utils.report;
 
-import java.util.List;
-import java.util.Map;
-
 import org.testng.IReporter;
 import org.testng.ISuite;
 import org.testng.ISuiteResult;
 import org.testng.ITestContext;
 import org.testng.xml.XmlSuite;
+
+import java.util.List;
+import java.util.Map;
 
 public class CustomSummaryReport implements IReporter {
 	@Override

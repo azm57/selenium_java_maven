@@ -1,5 +1,7 @@
 package com.pers.scenarios;
 
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 import com.pers.pageobjects.ObjectLibraryWrapper;
@@ -8,7 +10,7 @@ import com.pers.utils.ExcelUtil;
 
 public class Craftsvilla {
 
-	// @Test
+	//z @Test
 	public static void UserRegistration() throws Exception {
 		// Launch Application
 		Browser.setup("firefox");
@@ -86,8 +88,12 @@ public class Craftsvilla {
 		// Login to the application
 		ObjectLibraryWrapper.getobjRediff_HomePage().Login();
 
-		ObjectLibraryWrapper.getobjRediff_HomePage().NavToWatchlistAndVerify();
+		//ObjectLibraryWrapper.getobjRediff_HomePage().NavToWatchlistAndVerify();
 
-		Browser.getDriver().close();
+		//Browser.getDriver().close();
+	}
+	@AfterSuite
+	public void tearDown(){
+		Browser.getDriver().quit();
 	}
 }

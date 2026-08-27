@@ -1,12 +1,11 @@
 package com.pers.fixtures;
 
-import java.util.List;
-import java.util.NoSuchElementException;
-
+import com.pers.utils.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import com.pers.utils.Browser;
+import java.util.List;
+import java.util.NoSuchElementException;
 
 public class WebTableUtil {
 
